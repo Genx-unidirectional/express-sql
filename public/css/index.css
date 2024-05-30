@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img{
+    display: block ;
+    width: 100%;
+    height: auto;
+}
+
+
+.img-card{
+    width: 200px;
+    height: 200px;
+    font-size: 1rem;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 0.5rem;
+    gap: 4px;
+}
+
