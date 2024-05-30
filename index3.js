@@ -37,6 +37,16 @@ app.get("/", (req, res) => {
   res.render("home.ejs", { posts });
 });
 
+//new post
+
+app.get("/new", (req, res) => {
+  res.render("new.ejs");
+});
+
+app.post("/", (req, res) => {
+  const { username, content } = req.body;
+});
+
 app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
