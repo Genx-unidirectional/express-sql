@@ -4,6 +4,25 @@ const app = express();
 const port = 3000;
 const path = require("path");
 const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid");
+let posts = [
+  {
+    id: uuidv4(),
+    username: "apnacollge",
+    content: "we are just started let's see where we ended up",
+  },
+  {
+    id: uuidv4(),
+    username: "Royce",
+    content: "Small things makes perfection but perfection is not small thing",
+  },
+  {
+    id: uuidv4(),
+    username: "Elonmusk",
+    content:
+      "If something is important to get done you should keep doing it or die trying",
+  },
+];
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -15,7 +34,7 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.ejs", { posts });
 });
 
 app.listen(port, () => {
