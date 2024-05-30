@@ -22,14 +22,28 @@
 
         <%for(let post of posts){ %>
             <article class="bg-orange-200 rounded-lg p-4 to-black">
-                <h2 class="font-bold text-2xl">
+                <div class="flex justify-between w-full items-center">
 
-                    <%= post.username %>
-                </h2>
-                <p class="text-slate-800">
+                    <h2 class="font-bold text-2xl">
+                        <%= post.username %>
+                    </h2>
+                    <div class="flex items-center justify-center gap-2">
 
-                    <%= post.content %>
-                </p>
+                        <a class="bg-orange-800 text-white rounded-lg texl-lg  p-1" href="/edit/<%= post.id%>">Edit</a>
+                        <form method="post" action="/delete/<%= post.id  %>">
+
+                            <button class="bg-orange-800 text-white rounded-lg texl-lg  p-1">delete</butt>
+                        </form>
+                    </div>
+                </div>
+
+                <%= post.username %>
+                    </h2>
+                    <p class="text-slate-800">
+
+                        <%= post.content %>
+                    </p>
+
             </article>
             <% } %>
     </main>

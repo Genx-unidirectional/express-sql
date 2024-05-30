@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+    <div class="h-screen bg-gray-200 w-full flex justify-center items-center">
+
+        <form class="bg-orange-200 shadow-md shadow-black p-2 rounded-lg flex flex-col items-start gap-2" method="post"
+            action="/<%= post.id%>?_method=PATCH">
+
+            <h2 class="font-bold text-2xl text-black" for="username">
+                <%=post.username %>
+            </h2>
+
+            <label class="font-bold text-2xl text-black" for="content">Content:</label>
+            <textarea class="rounded-lg p-1 text-lg w-full" name="content" id="content">
+                <%= post.content %>
+
+            </textarea>
+            <button class="w-full font-medium text-white bg-orange-800 p-1 rounded-lg text-2xl">
+                submit
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
