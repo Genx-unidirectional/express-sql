@@ -43,8 +43,34 @@ app.get("/new", (req, res) => {
   res.render("new.ejs");
 });
 
+app.get("/edit/:id", (req, res) => {
+  const { id } = req.params;
+  const post = posts.find((post) => post.id === id);
+  res.render("edit.ejs", { post });
+});
+
 app.post("/", (req, res) => {
   const { username, content } = req.body;
+  posts.push({ id: uuidv4(), username, content });
+  res.redirect("/");
+});
+
+app.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  const { content: newContent } = req.body;
+  posts = posts.map((post) => {
+    if (post.id === id) {
+      return { ...post, content: newContent };
+    }
+    return post;
+  });
+  res.redirect("/");
+});
+
+app.post("/delete/:id", (req, res) => {
+  const { id } = req.params;
+  posts = posts.filter((post) => post.id !== id);
+  res.redirect("/");
 });
 
 app.listen(port, () => {
